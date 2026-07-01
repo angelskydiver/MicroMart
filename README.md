@@ -2,6 +2,42 @@
 
 This repository is a Spring Boot microservices reference platform that is being evolved toward production readiness.
 
+## Portfolio Value
+
+MicroMart demonstrates backend system design across a realistic microservices platform: gateway routing, discovery, centralized configuration, authentication, service-owned schemas, Kafka-based messaging, file storage, CI validation, Docker packaging, health checks, and production-readiness planning.
+
+```mermaid
+flowchart LR
+    Client[Client / API Consumer] --> Gateway[API Gateway]
+    Gateway --> Auth[Auth Service]
+    Gateway --> Users[User Service]
+    Gateway --> Jobs[Job Service]
+    Gateway --> Files[File Storage]
+    Gateway --> Notifications[Notification Service]
+
+    Config[Config Server] --> Auth
+    Config --> Users
+    Config --> Jobs
+    Config --> Files
+    Config --> Notifications
+
+    Eureka[Eureka Discovery] --> Gateway
+    Auth --> DB[(PostgreSQL)]
+    Users --> DB
+    Jobs --> DB
+    Files --> DB
+    Notifications --> Kafka[(Kafka)]
+```
+
+## Skills Demonstrated
+
+- Spring Boot 3 and Spring Cloud service composition.
+- API gateway, service discovery, and centralized configuration.
+- PostgreSQL schema ownership with Flyway migrations.
+- Kafka-backed notification workflows.
+- Docker Compose local platform orchestration.
+- CI checks, actuator health endpoints, and production readiness gates.
+
 ## Author
 
 Feng Yang
